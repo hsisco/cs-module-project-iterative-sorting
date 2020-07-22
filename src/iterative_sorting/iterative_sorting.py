@@ -1,26 +1,36 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
+    n = len(arr)                                # we'll be using this a lot, so just give it its own var
+    for i in range(0, n - 1):
+        # cur_index = i
+        # smallest_index = cur_index
+        min = i                                 # simplified var
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
-        # Your code here
+        # for j in range(i + 1, n):
+        #     if arr[j] < arr[smallest_index]:
+        #         smallest_index = j
+        for j in range(i+1, n):                 # for the one to the right of i (for the duration of the array):
+            if arr[j] < arr[min]:               # if that one is smaller than the i in question:
+                min = j                         # it then becomes the smallest in the comparison set
 
+        # TO-DO: swap                           # so switch their positions
+        # arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
+        arr[i], arr[min] = arr[min], arr[i]   
 
-        # TO-DO: swap
-        # Your code here
-
-    return arr
+    return arr                                  # after the whole array's been looped through, return it
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
+    n = len(arr)                                # we'll be using this a lot, so just give it its own var
+    for i in range(n):                          # for every i in the array (no edits):
+        for j in range(n - 1):                  # for every item except the last one (because it will be switched ??)
+            if arr[j] > arr[j+1]:                   # if that one is smaller than the i to the right:
+                arr[j], arr[j+1] = arr[j+1], arr[j] # switch their positions
 
-
-    return arr
+    return arr                                  # after the whole array's been looped through, return it
 
 '''
 STRETCH: implement the Counting Sort function below
